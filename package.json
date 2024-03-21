@@ -1,0 +1,12 @@
+{
+  "name": "typescript-learning-notes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "1-js-data-types.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
