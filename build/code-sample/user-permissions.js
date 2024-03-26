@@ -4,7 +4,7 @@ var Permissions;
     Permissions[Permissions["Write"] = 2] = "Write";
     Permissions[Permissions["Execute"] = 4] = "Execute"; // Binary: 0100
 })(Permissions || (Permissions = {}));
-var user = {
+const user = {
     name: "Bob",
     role: "Editor",
     permissions: Permissions.Read | Permissions.Write // Combines read and write

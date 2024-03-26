@@ -1,18 +1,18 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var readline = require("readline");
+const readline = require("readline");
 // Our simulated "JSON database" (in-memory array)
-var users = [];
+let users = [];
 // Global variable to track the next ID for new users
-var nextId = 1;
+let nextId = 1;
 // Function to create a new user
 function createUser() {
-    var rl = readline.createInterface({ input: process.stdin, output: process.stdout });
-    rl.question('Enter name: ', function (name) {
-        rl.question('Enter email: ', function (email) {
-            var newUser = { id: nextId++, name: name, email: email };
+    const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+    rl.question('Enter name: ', (name) => {
+        rl.question('Enter email: ', (email) => {
+            const newUser = { id: nextId++, name, email };
             users.push(newUser);
-            console.log("User created successfully!");
+            console.log(`User created successfully!`);
             rl.close();
         });
     });
@@ -24,25 +24,25 @@ function readUsers() {
         return;
     }
     console.log('List of Users:');
-    users.forEach(function (user) {
-        console.log("ID: ".concat(user.id, ", Name: ").concat(user.name, ", Email: ").concat(user.email));
+    users.forEach((user) => {
+        console.log(`ID: ${user.id}, Name: ${user.name}, Email: ${user.email}`);
     });
 }
 // Function to update an existing user
 function updateUser() {
-    var rl = readline.createInterface({ input: process.stdin, output: process.stdout });
-    rl.question('Enter the ID of the user to update: ', function (id) {
-        var userId = parseInt(id);
-        var existingUserIndex = users.findIndex(function (user) { return user.id === userId; });
+    const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+    rl.question('Enter the ID of the user to update: ', (id) => {
+        const userId = parseInt(id);
+        const existingUserIndex = users.findIndex((user) => user.id === userId);
         if (existingUserIndex === -1) {
             console.log('User not found.');
             rl.close();
             return;
         }
-        rl.question('Enter new name (press Enter to keep existing): ', function (newName) {
-            var newEmail = newName.trim() ? newName : users[existingUserIndex].name;
-            rl.question('Enter new email (press Enter to keep existing): ', function (newEmailInput) {
-                var newEmail = newEmailInput.trim() ? newEmailInput : users[existingUserIndex].email;
+        rl.question('Enter new name (press Enter to keep existing): ', (newName) => {
+            const newEmail = newName.trim() ? newName : users[existingUserIndex].name;
+            rl.question('Enter new email (press Enter to keep existing): ', (newEmailInput) => {
+                const newEmail = newEmailInput.trim() ? newEmailInput : users[existingUserIndex].email;
                 users[existingUserIndex] = { id: userId, name: newEmail, email: newEmail };
                 console.log('User updated successfully!');
                 rl.close();
@@ -52,10 +52,10 @@ function updateUser() {
 }
 // Function to delete a user
 function deleteUser() {
-    var rl = readline.createInterface({ input: process.stdin, output: process.stdout });
-    rl.question('Enter the ID of the user to delete: ', function (id) {
-        var userId = parseInt(id);
-        var existingUserIndex = users.findIndex(function (user) { return user.id === userId; });
+    const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+    rl.question('Enter the ID of the user to delete: ', (id) => {
+        const userId = parseInt(id);
+        const existingUserIndex = users.findIndex((user) => user.id === userId);
         if (existingUserIndex === -1) {
             console.log('User not found.');
             rl.close();
@@ -74,9 +74,9 @@ function mainMenu() {
     console.log('3. Update User');
     console.log('4. Delete User');
     console.log('5. Exit');
-    var rl = readline.createInterface({ input: process.stdin, output: process.stdout });
-    rl.question('Enter your choice: ', function (choice) {
-        var option = parseInt(choice);
+    const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+    rl.question('Enter your choice: ', (choice) => {
+        const option = parseInt(choice);
         switch (option) {
             case 1:
                 createUser();

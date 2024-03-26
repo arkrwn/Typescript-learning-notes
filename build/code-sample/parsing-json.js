@@ -1,7 +1,7 @@
-var rawJson = '{ "id": 123, "name": "Widget", "price": 9.99 }';
+const rawJson = '{ "id": 123, "name": "Widget", "price": 9.99 }';
 function parseProduct(jsonString) {
     try {
-        var productData = JSON.parse(jsonString);
+        const productData = JSON.parse(jsonString);
         // Ensure the parsed data has the correct structure 
         if (typeof productData.id === "number" &&
             typeof productData.name === "string" &&
@@ -17,7 +17,7 @@ function parseProduct(jsonString) {
         return null;
     }
 }
-var product = parseProduct(rawJson);
+const product = parseProduct(rawJson);
 if (product) {
     console.log("Product:", product);
 }
