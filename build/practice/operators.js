@@ -1,3 +1,4 @@
+"use strict";
 let booleanResultAnd = true && false; // Logical AND returns TRUE only if both operands are TRUE
 console.log("Logical AND Result " + booleanResultAnd);
 let booleanResultOr = true || false; // Logical OR returns TRUE if either one or both operands are TRUE

@@ -1,3 +1,4 @@
+"use strict";
 let numberX = 10;
 let numberY = 22;
 let numberZ = 3.5;

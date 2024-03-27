@@ -7,14 +7,32 @@
 
 // console.log("Hello, " + nameUser + "! You are " + age + " years old.");
 
+// Read multiple file types
 
-// Handle user input in console using node js module
-import * as readline from 'node:readline/promises';
-import { stdin as input, stdout as output } from 'node:process';
+import * as fs from 'fs-extra';
+import * as toml from 'toml';
+import * as yaml from 'yaml';
 
-const rl = readline.createInterface({ input, output });
+let samplePath: String = "./practice/resources/sample-file/";
 
-const answer = await rl.question('What is your favorite color? ');
-console.log(`Your favorite color is ${answer}`);
+async function readFiles() {
+  try {
+    // Read TOML file
+    const tomlContent = await fs.readFile(samplePath + 'sample.toml', 'utf-8');
+    const tomlData = toml.parse(tomlContent);
+    console.log('TOML Data:', tomlData);
 
-rl.close(); 
+    // Read YAML file
+    const yamlContent = await fs.readFile(samplePath + 'sample.yaml', 'utf-8');
+    const yamlData = yaml.parse(yamlContent);
+    console.log('YAML Data:', yamlData);
+
+    // Read JSON file
+    const jsonData = await fs.readJSON(samplePath + 'sample.json');
+    console.log('JSON Data:', jsonData);
+  } catch (error) {
+    console.error('Error reading files:', error);
+  }
+}
+
+readFiles();

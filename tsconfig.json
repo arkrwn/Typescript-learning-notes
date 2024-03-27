@@ -1,12 +1,19 @@
+
 {
     "compilerOptions": {
-      "module": "commonjs", // Adjust if you use a different module system
-      "target": "es2017",    // Adjust if you need to target a different version
-      "outDir": "./build",   // Specify your desired build directory
-      "rootDir": "./"        // Set the root directory for input files
+      "target": "es2017",      
+      "module": "commonjs",     
+      "outDir": "./build", 
+      "rootDir": "./",     
+      "strict": true,           
+      "noImplicitAny": true,    
+      "noUnusedLocals": true,   
+      "noUnusedParameters": true
     },
     "include": [
-      "./**/*.ts"           // Include all TypeScript files in the project
+      "./**/*.ts"     
+    ],
+    "exclude": [
+      "./code-sample/*.ts" 
     ]
   }
-  
